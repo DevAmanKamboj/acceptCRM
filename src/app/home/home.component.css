@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+
+#searchBox{
+    float:right;
+    /* margin-left: 10px; */
+}
+
+#addProfessionalsButton{
+  margin-left: 10px;
+}
+
+/* .mat-form-field {
+  font-size: 14px;
+  width: 100%;
+} */

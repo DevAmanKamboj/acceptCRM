@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+}
+
+#searchBox {
+    float: right;
+    /* margin-left: 10px; */
+}
+
+#addFacilityButton {
+    margin-left: 10px;
+}
+
+
+
+
+
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: green;  /*replace with your color*/
+}
+::ng-deep .mat-slide-toggle .mat-slide-toggle-bar {
+    background-color: red;  /*replace with your color*/
+}
+
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: white; /*replace with your color*/
+}
+::ng-deep .mat-slide-toggle .mat-slide-toggle-thumb {
+    background-color: white; /*replace with your color*/
+}

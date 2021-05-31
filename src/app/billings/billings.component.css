@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+
+#searchBox {
+    float: left;
+    /* margin-left: 10px; */
+}
+
+.dropDownSearch {
+    margin-left: 10px;
+}

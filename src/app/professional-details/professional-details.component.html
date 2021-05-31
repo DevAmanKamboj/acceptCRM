@@ -1,0 +1,378 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <form>
+            <h4>Personal Particulars</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Initials</label>
+                        <input type="text" class="form-control" placeholder="Mr/Mrs/Miss" value="" name="Initials">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" placeholder="First Name" value="" name="firstName">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" value="" name="lastName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Gender </label>
+                        <input type="text" class="form-control" placeholder="Gender" value="" name="gender">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="date" class="form-control" placeholder="DOB" value="" name="DOB">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="text" class="form-control" placeholder="Age" value="" name="Age">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" placeholder="Email" value="" name="Email">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Mobile</label>
+                        <input type="text" class="form-control" placeholder="Mobile" value="" name="Mobile">
+                    </div>
+                </div>
+
+            </div>
+            <h4>My Profession</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" name="profession">Clinical Counsellor
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="profession">Pyschologist
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="profession">Psychotherapist
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="profession">Psychiatrist
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="profession">Social Worker
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <h4>Educational Qualification</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="tableHeader"> Course Title </th>
+                                <th class="tableHeader"> Institution </th>
+                                <th class="tableHeader"> Year Of Completion </th>
+                                <th class="tableHeader"> Document</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dynamic of educationalQualifications; let i = index;">
+                                <!-- <td>{{dynamic  .CourseTitle}}</td> -->
+                                <td>
+                                    <input [(ngModel)]="educationalQualifications[i].CourseTitle" class="form-control"
+                                        type="text" name="'CourseTitle'+{{i}}" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="educationalQualifications[i].Institution" class="form-control"
+                                        type="text" name="'institution'+{{i}}" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="educationalQualifications[i].YearOfCompletion"
+                                        class="form-control" name="'yearOfCompletion'+{{i}}" type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="educationalQualifications[i].Document" class="form-control"
+                                        type="text" name="'document'+{{i}}" />
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td colspan="4" (click)="addRowEducation(i)">
+                                    <button mat-stroked-button
+                                        style="float:right;background-color:#ffe6e6;">ADD</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h4>Work Experience</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="tableHeader"> Role </th>
+                                <th class="tableHeader"> Organisation </th>
+                                <th class="tableHeader"> City </th>
+                                <th class="tableHeader"> Period</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dynamic of workExperiences; let i = index;">
+                                <!-- <td>{{dynamic  .CourseTitle}}</td> -->
+                                <td>
+                                    <input [(ngModel)]="workExperiences[i].Role" class="form-control" type="text"
+                                        name="'Role'+{{i}}" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="workExperiences[i].Organisation" class="form-control"
+                                        type="Organisation" name="'institution'+{{i}}" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="workExperiences[i].City" class="form-control"
+                                        name="'City'+{{i}}" type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="workExperiences[i].Period" class="form-control" type="text"
+                                        name="'Period'+{{i}}" />
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td colspan="4" (click)="addRowExperience(i)">
+                                    <button mat-stroked-button
+                                        style="float:right;background-color:#ffe6e6;">ADD</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h4>Total Years of Experience</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Eg. 5 years,3 Months" value=""
+                        name="totalExperience">
+                </div>
+            </div>
+            <br>
+            <h4>Memberships / Affiliations</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="tableHeader"> Organisation Name </th>
+                                <th class="tableHeader"> Memberships Status </th>
+                                <th class="tableHeader"> From </th>
+                                <th class="tableHeader"> Until </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dynamic of memberships; let i = index;">
+                                <!-- <td>{{dynamic  .CourseTitle}}</td> -->
+                                <td>
+                                    <input [(ngModel)]="memberships[i].OrganisationName" class="form-control"
+                                        type="text" name="'OrganisationName'+{{i}}" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="memberships[i].MembershipStatus" class="form-control"
+                                        type="Organisation" name="'MembershipStatus'+{{i}}" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="memberships[i].From" class="form-control" name="'From'+{{i}}"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="memberships[i].Until" class="form-control" type="text"
+                                        name="'Until'+{{i}}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" (click)="addRowMemberShip(i)">
+                                    <button mat-stroked-button
+                                        style="float:right;background-color:#ffe6e6;">ADD</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h4>Professional Reference <span style="color:black;">(If necessary, we may contact reference to verify
+                    information)</span></h4>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        1.
+                        <input type="text" class="form-control" placeholder="Mr/Mrs/Miss" value="" name="salutation">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label> </label>
+                        <input type="text" class="form-control" placeholder="First Name" value="" name="firstName">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label> </label>
+                        <input type="text" class="form-control" placeholder="Last Name" value="" name="lastName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <!-- <label>Email </label> -->
+                        <input type="text" class="form-control" placeholder="Email" value="" name="emailRef1">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <!-- <label>Mobile</label> -->
+                        <input type="text" class="form-control" placeholder="Mobile" value="" name="mobileRef1">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        2.
+                        <input type="text" class="form-control" placeholder="Mr/Mrs/Miss" value="" name="salutation">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label> </label>
+                        <input type="text" class="form-control" placeholder="First Name" value="" name="firstName">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label> </label>
+                        <input type="text" class="form-control" placeholder="Last Name" value="" name="lastName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <!-- <label>Email </label> -->
+                        <input type="text" class="form-control" placeholder="Email" value="" name="emailRef1">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <!-- <label>Mobile</label> -->
+                        <input type="text" class="form-control" placeholder="Mobile" value="" name="mobileRef1">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 ">
+                    <label style="font-weight: bold;" for="briefIntro">Give a brief introduction of yourself for the
+                        candidates seeking Superision (500 words)</label>
+                    <textarea name="briefIntro" class="md-textarea form-control" rows="3"></textarea>
+
+                </div>
+                <!-- <div class="md-form">
+                    <textarea id="form7" class="md-textarea form-control" rows="3"></textarea>
+                    <label for="form7">Material textarea</label>
+                  </div> -->
+            </div>
+            <br>
+            <h4>Select Areas of Compentencies you can provide Supervision for</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="checkbox" name="AEDP" value="AEDP">&nbsp;
+                    <label for="AEDP"> Accelerated Experiment Dynamic Psychotherapy(AEDP)</label><br>
+
+                    <input type="checkbox" name="ART" value="ART">&nbsp;
+                    <label for="ART"> Accelerated Resolution Therapty (ART)</label><br>
+
+                    <input type="checkbox" name="ACT" value="ACT">&nbsp;
+                    <label for="ACT"> Acceptance and Commitment Therapy(ACT)</label><br>
+
+                    <input type="checkbox" name="AP" value="Adlerian Psychology/Psychotherapy">&nbsp;
+                    <label for="AP">Adlerian Psychology/Psychotherapy</label><br>
+
+                    <input type="checkbox" name="AM" value="Anger Management">&nbsp;
+                    <label for="AM"> Anger Management</label><br>
+
+                    <input type="checkbox" name="AAP" value="Animal-Assisted Psychotherapy">&nbsp;
+                    <label for="AAP">Animal-Assisted Psychotherapy</label><br>
+
+                    <input type="checkbox" name="ABA" value="ABA">&nbsp;
+                    <label for="ABA"> Applied Behavior Analysis(ACT)</label><br>
+
+                    <input type="checkbox" name="AT" value="Art Therapy">&nbsp;
+                    <label for="AT"> Art Therapy</label><br>
+
+                    <input type="checkbox" name="ABFT" value="ABFT">&nbsp;
+                    <label for="ABFT"> Attachment-Based Family Therapy(ABFT)</label><br>
+
+                    <input type="checkbox" name="AMovement" value="Authentic Movement">&nbsp;
+                    <label for="AMovement"> Authentic Movement</label><br>
+
+                    <input type="checkbox" name="ATraining" value="Autogenic Training">&nbsp;
+                    <label for="ATraining"> Autogenic Training</label><br>
+
+                    <input type="checkbox" name="ATherapy" value="Aversion Therapy">&nbsp;
+                    <label for="ATherapy"> Aversion Therapy</label><br>
+
+                    <!-- <input type="submit" value="Submit"> -->
+                </div>
+            </div>
+
+            <br>
+            <h4>Disclosures</h4>
+            <div class="row">
+                <div class="col-md-12">
+
+                    In the past 5 years have you had any of the following disclosure issues:
+                    <br>
+                    1. Has your license, registration, or certification to practice in your profession, ever been
+                    voluntarily or involuntarily relinquished, denied, suspended, revoked, or restricted? YES / NO
+                    <br>
+                    2. Are you currently the subject of any investigations or sanctions from any program or agency? YES
+                    / NO
+                    <br>
+                    3. Have you ever been convicted of or pled guilty to any felony or misdemeanor related to the your
+                    profession? YES / NO
+                    <br>
+                    4. Are you able to practice independently? YES / NO
+                    <br>
+                    5. Do you currently
+                    maintain professional liability coverage? YES / NO
+                    <br>
+                    6. Has your professional liability coverage ever
+                    been cancelled, restricted, declined or not renewed by the carrier based on your individual
+                    liability history? YES / NO
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-11">
+                    <button mat-stroked-button style="float:right;background-color:#ffe6e6;">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

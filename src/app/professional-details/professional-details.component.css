@@ -1,0 +1,13 @@
+h4{
+    color:orange;
+    font-weight: bold;
+}
+label{
+    font-weight: lighter;
+}
+.radio-inline{
+    font-weight: bolder;
+}
+.tableHeader{
+    font-weight: bolder;
+}

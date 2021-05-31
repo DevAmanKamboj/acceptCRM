@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+
+#searchBox {
+    float: right;
+    /* margin-left: 10px; */
+}
+
+#addHolidayButton {
+    margin-left: 10px;
+}

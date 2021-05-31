@@ -1,0 +1,742 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <form>
+
+            <h4>Facility</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="type">Organisations</label><br>
+                        <mat-form-field appearance="">
+                            <mat-label>Select One</mat-label>
+                            <mat-select>
+                                <mat-option value="Olive">Olive Branch Counselling Service</mat-option>
+                                <mat-option value="ABC">ABC Counselling Service</mat-option>
+                                <mat-option value="XYZ">XYZ Counselling Service</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="type">Locations</label><br>
+                        <mat-form-field appearance="">
+                            <mat-label>Select One</mat-label>
+                            <mat-select>
+                                <mat-option value="oliveBranch">Olive Branch</mat-option>
+                                <mat-option value="abcBranch">ABC Branch</mat-option>
+                                <mat-option value="xyzBranch">XYZ Branch</mat-option>
+
+                                <!-- <mat-option value="imps">IMPS </mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Facility Names <span style="color:red;">*</span> </label>
+                        <input type="text" class="form-control" placeholder="Room-3 Adults" value=""
+                            name="facilityName">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="type">Facility Type<span style="color:red;">*</span></label><br>
+                        <mat-form-field appearance="">
+                            <mat-label>Select One</mat-label>
+                            <mat-select>
+                                <mat-option value="room">Room</mat-option>
+                                <mat-option value="hall">Hall</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <h4>Facility Time Settings</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Number of Days Available For Bookings <span style="color:red;">*</span> </label>
+                        <!-- <input type="text" class="form-control" placeholder="90 Days" value="" name="availableDays"> -->
+                        <mat-form-field appearance="">
+                            <mat-label>Select One</mat-label>
+                            <mat-select>
+                                <mat-option value="30">30 Days</mat-option>
+                                <mat-option value="60">60 Days</mat-option>
+                                <mat-option value="90">90 Days</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Minimum Time Required Before Booking <span style="color:red;">*</span> </label>
+                        <!-- <input type="text" class="form-control" placeholder="6 Hours" value="" name="minimum Time"> -->
+                        <mat-form-field appearance="">
+                            <mat-label>Select One</mat-label>
+                            <mat-select>
+                                <mat-option value="1">1 Hour</mat-option>
+                                <mat-option value="2">2 Hour</mat-option>
+                                <mat-option value="3">3 Hour</mat-option>
+                                <mat-option value="4">4 Hour</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Minimum Time Required for Client Before Cancellation <span style="color:red;">*</span>
+                        </label>
+                        <!-- <input type="text" class="form-control" placeholder="6 Hours" value="" name="availableDays"> -->
+                        <mat-form-field appearance="">
+                            <mat-label>Select One</mat-label>
+                            <mat-select>
+                                <mat-option value="1">1 Hour</mat-option>
+                                <mat-option value="2">2 Hour</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <h5>Facility Available Hours</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-5"><label>Start Time</label></div>
+                        <div class="col-md-7"> <input type="time" class="{{borderColor}}" class="form-control"
+                                [(ngModel)]="startTime" name="startTime" id="startTime"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-5"><label>Closing Time</label></div>
+                        <div class="col-md-7"> <input class="{{borderColor}}" (change)="timeValidation()" type="time"
+                                class="form-control" [(ngModel)]="closingTime" name="closingTime" min="13:00"
+                                id="closingTime"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-5"><label>Time Slot</label></div>
+                        <div class="col-md-7">
+                            <!-- <input type="text" class="form-control" placeholder="90 Mins" value="" name="timeSlot"> -->
+                            <mat-form-field appearance="">
+                                <mat-label>Select One</mat-label>
+                                <mat-select>
+                                    <mat-option value="45">45 Minutes</mat-option>
+                                    <mat-option value="60">60 Minutes</mat-option>
+                                    <mat-option value="90">90 Minutes</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5>Monday</h5>
+            <div class="row">
+                <div class="days col-md-1">
+                    <div class="weekColor">9:00 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityMonday[0] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">10:30 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityMonday[1] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">12:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityMonday[2] ? 'green' : 'red'">
+                    </div>
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">01:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityMonday[3] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">03:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityMonday[4] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">04:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityMonday[5] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">06:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityMonday[6] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">07:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityMonday[7] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">09:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityMonday[8] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <h5>Tuesday</h5>
+            <div class="row">
+                <div class="days col-md-1">
+                    <div class="weekColor">9:00 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityTuesday[0] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">10:30 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityTuesday[1] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">12:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityTuesday[2] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">01:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityTuesday[3] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">03:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityTuesday[4] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">04:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityTuesday[5] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">06:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityTuesday[6] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">07:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityTuesday[7] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">09:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityTuesday[8] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <h5>Wednesday</h5>
+            <div class="row">
+                <div class="days col-md-1">
+                    <div class="weekColor">9:00 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityWednesday[0] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">10:30 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityWednesday[1] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">12:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityWednesday[2] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">01:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityWednesday[3] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">03:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityWednesday[4] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">04:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityWednesday[5] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">06:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityWednesday[6] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">07:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityWednesday[7] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">09:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityWednesday[8] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <h5>Thursday</h5>
+            <div class="row">
+                <div class="days col-md-1">
+                    <div class="weekColor">9:00 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityThursday[0] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">10:30 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityThursday[1] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">12:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityThursday[2] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">01:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityThursday[3] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">03:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityThursday[4] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">04:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityThursday[5] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">06:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityThursday[6] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">07:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityThursday[7] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">09:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityThursday[8] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <h5>Friday</h5>
+            <div class="row">
+                <div class="days col-md-1">
+                    <div class="weekColor">9:00 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityFriday[0] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">10:30 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilityFriday[1] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">12:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityFriday[2] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">01:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityFriday[3] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">03:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityFriday[4] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">04:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityFriday[5] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">06:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityFriday[6] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">07:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityFriday[7] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">09:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilityFriday[8] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <h5>Saturday</h5>
+            <div class="row">
+                <div class="days col-md-1">
+                    <div class="weekColor">9:00 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySaturday[0] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">10:30 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySaturday[1] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">12:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySaturday[2] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">01:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySaturday[3] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">03:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySaturday[4] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">04:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySaturday[5] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">06:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySaturday[6] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">07:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySaturday[7] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">09:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySaturday[8] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <h5>Sunday</h5>
+            <div class="row">
+                <div class="days col-md-1">
+                    <div class="weekColor">9:00 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySunday[0] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">10:30 AM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySunday[1] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">12:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySunday[2] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">01:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySunday[3] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">03:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySunday[4] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">04:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySunday[5] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">06:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySunday[6] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">07:30 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySunday[7] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+                <div class="days col-md-1">
+                    <div class="weekColor">09:00 PM</div>
+
+                    <div class="availability " [style.background-color]="availabilitySunday[8] ? 'green' : 'red'">
+                    </div>
+
+                </div>
+            </div>
+
+
+            <br>
+            <h4>Facility Used For</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="checkbox" name="frontEnd" value="">&nbsp;
+                    <label for="frontEnd">Available for Frontend Client Booking</label>
+                    <!-- <input type="text" class="form-control" placeholder="Room-3 Adults" value="" name="facilityName"> -->
+                </div>
+                <div class="col-md-4">
+                    <input type="checkbox" name="counsellor" value="">&nbsp;
+                    <label for="counsellor">Enable Counsellor Booking</label>
+                </div>
+            </div>
+            <br>
+            <h4>Appointment For</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="checkbox" name="parent" value="">&nbsp;
+                    <label for="parent">Parent Session</label>
+                    <!-- <input type="text" class="form-control" placeholder="Room-3 Adults" value="" name="facilityName"> -->
+                </div>
+                <div class="col-md-4">
+                    <input type="checkbox" name="Adult" value="">&nbsp;
+                    <label for="adult">Adult Individual Session</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="checkbox" name="family" value="">&nbsp;
+                    <label for="family">Family Session</label>
+                    <!-- <input type="text" class="form-control" placeholder="Room-3 Adults" value="" name="facilityName"> -->
+                </div>
+                <div class="col-md-4">
+                    <input type="checkbox" name="child" value="">&nbsp;
+                    <label for="child">Child Concerns(3-12)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="checkbox" name="teenager" value="">&nbsp;
+                    <label for="teenager">Teenager Issues(13-19)</label>
+                    <!-- <input type="text" class="form-control" placeholder="Room-3 Adults" value="" name="facilityName"> -->
+                </div>
+                <div class="col-md-4">
+                    <input type="checkbox" name="couple" value="">&nbsp;
+                    <label for="couple">Adult - Couple Session</label>
+                </div>
+            </div>
+            <h4>Facility Rental</h4>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="type">Peak Hour Charges<span style="color:red;">*</span></label><br>
+                        <input type="text" class="form-control" placeholder="50.00" value="" name="peakCharges">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group" style="width:103%">
+                        <label for="type">Non-Peak Hour Charges<span style="color:red;">*</span></label><br>
+                        <input type="text" class="form-control" placeholder="40.00" value="" name="nonPeakCharges">
+                    </div>
+                </div>
+                <!-- <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Facility Names <span style="color:red;">*</span> </label>
+                        <input type="text" class="form-control" placeholder="Room-3 Adults" value=""
+                            name="facilityName">
+                    </div>
+                </div> -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="type">Cancellation Time required Within (100% Deduction)<span
+                                style="color:red;">*</span></label><br>
+                        <mat-form-field appearance="">
+                            <mat-label>Select One</mat-label>
+                            <mat-select>
+                                <mat-option value="2">2 Hours</mat-option>
+                                <mat-option value="4">4 Hours</mat-option>
+                                <mat-option value="8">8 Hours</mat-option>
+                                <mat-option value="10">10 Hours</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="type">Cancellation Time required Within (50% Deduction)<span
+                                style="color:red;">*</span></label><br>
+                        <mat-form-field appearance="">
+                            <mat-label>Select One</mat-label>
+                            <mat-select>
+                                <mat-option value="12">12 Hours</mat-option>
+                                <mat-option value="24">24 Hours</mat-option>
+                                <!-- <mat-option value="8">8 Hours</mat-option>
+                                <mat-option value="10">10 Hours</mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="type">Cancellation Time required Within (25% Deduction)<span
+                                style="color:red;">*</span></label><br>
+                        <mat-form-field appearance="">
+                            <mat-label>Select One</mat-label>
+                            <mat-select>
+                                <mat-option value="48">48 Hours</mat-option>
+                                <mat-option value="40">40 Hours</mat-option>
+                                <!-- <mat-option value="8">8 Hours</mat-option>
+                                <mat-option value="10">10 Hours</mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="type">Calender ID<span style="color:red;">*</span></label><br>
+                        <input type="text" class="form-control" placeholder="abcxyzqwerty@group.calender.google.com"
+                            value="" name="calenderID">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <button mat-raised-button color="primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

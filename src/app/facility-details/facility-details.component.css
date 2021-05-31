@@ -1,0 +1,55 @@
+label {
+    font-weight: lighter;
+}
+
+h4 {
+    color: orange;
+    font-weight: bold;
+}
+
+h5 {
+    color: green;
+    font-weight: bold;
+}
+
+.redBorder {
+    border-color: red;
+}
+
+.days {
+    /* background-color: #99ffcc; */
+    /* padding-left: 20px; */
+    margin-left: -3px;
+    text-align: center;
+    width: 100px;
+    /* text-align: center; */
+    /* vertical-align: middle; */
+    /* align-content: center;       */
+    /* align-items: center; */
+}
+
+.weekColor {
+    background-color: #99ffcc;
+    padding: 5px;
+    border-radius: 5px;
+    /* text-align: center; */
+    /* vertical-align: middle; */
+    /* align-content: center;   */
+}
+
+.availability {
+    margin-top: 5px;
+    height: 10px;
+    width: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* vertical-align: middle; */
+}
+
+.availabilityColorRed {
+    background-color: red;
+}
+
+.availabilityColorGreen {
+    background-color: green;
+}

@@ -1,0 +1,73 @@
+<div id="searchBox">
+    <!-- <mat-form-field id="searchBox"> -->
+    <!-- <mat-label>Filter</mat-label> -->
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search(Text and numbers)" #input>
+    </mat-form-field>
+    <!-- <p>helllo</p>
+    <p>helllo</p> -->
+    <button mat-raised-button color="warn" id="addFacilityButton" (click)="addFacility()">+ Add Facility</button>
+    <!-- </mat-form-field> -->
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="FacilityID">
+        <th mat-header-cell *matHeaderCellDef> Facility ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.FacilityID}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Location">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let element"> {{element.Location}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="FacilityType">
+        <th mat-header-cell *matHeaderCellDef> Facility Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.FacilityType}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <!-- <td mat-cell *matCellDef="let element"> {{element.Status}} </td> -->
+        <td mat-cell *matCellDef="let element">
+            <mat-slide-toggle class="example-margin" style="color:red;" [checked]="element.Status=='Active'?true:false">
+
+            </mat-slide-toggle>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit">
+        <th mat-header-cell *matHeaderCellDef> Edit </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="facilityDetails()">
+                <mat-icon>assignment</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+</table>
